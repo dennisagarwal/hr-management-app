@@ -1,5 +1,6 @@
 import "./App.css";
 import react, { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [name, setName] = useState("");
@@ -7,7 +8,7 @@ function App() {
   const [country, setCountry] = useState("");
   const [education, setEducation] = useState("");
   const [position, setPosition] = useState("");
-  const [salary, setSalary] = useState(0);
+  const [wage, setWage] = useState(0);
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -21,8 +22,8 @@ function App() {
     setPosition(event.target.value);
   };
 
-  const handleSalary = (event) => {
-    setSalary(event.target.value);
+  const handleWage = (event) => {
+    setWage(event.target.value);
   };
 
   const handleCountry = (event) => {
@@ -31,6 +32,23 @@ function App() {
 
   const handleEducation = (event) => {
     setEducation(event.target.value);
+  };
+
+  const addEmployee = () => {
+    axios.post("http://localhost:8000/create", {
+      //second or white or value name,age,position etc refer to value in input
+      //yellow or key or first name, age, education refers to req.body.name in server
+      name: name,
+      age: age,
+      position: position,
+      country: country,
+      education: education,
+      wage: wage,
+    }).then(()=>{
+      console.log("success")
+    }).catch((error) => {
+      console.log(error);
+    });
   };
 
   return (
@@ -71,14 +89,16 @@ function App() {
           type="text"
           onChange={handleEducation}
         ></input>
-        <label>Annual Salary ($):</label>
+        <label>Annual Wage ($):</label>
         <input
-          value={salary}
+          value={wage}
           className="information__input"
           type="number"
-          onChange={handleSalary}
+          onChange={handleWage}
         ></input>
-        <button className="information__button">Add Employee</button>
+        <button onClick={addEmployee} className="information__button">
+          Add Employee
+        </button>
       </div>
     </div>
   );
