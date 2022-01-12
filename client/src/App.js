@@ -106,7 +106,18 @@ function App() {
   };
 
   const deleteEmployees=(id)=>{
-    axios.delete("http://localhost:8000/delete/id")
+    axios.delete(`http://localhost:8000/delete/${id}`)
+    .then((result) => {
+      setEmployeeList(
+        employeeList.filter((employee) => {
+          return employee.id != id
+
+        })
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
@@ -192,7 +203,7 @@ function App() {
                   >
                     Update
                   </button>
-                  <button onClick={deleteEmployees(employee.id)}>Delete</button>
+                  <button onClick={()=>deleteEmployees(employee.id)}>Delete</button>
                 </div>
                 <p className="employee__label--small">
                   Country: {employee.country}
