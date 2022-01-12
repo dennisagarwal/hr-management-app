@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const cors= require('cors')
 
 app.use(cors())
-app.use(express.json)
+app.use(express.json())
 
 const db = mysql.createConnection({
   user: "root",
@@ -23,8 +23,8 @@ app.post("/create", (req, res) => {
 
   //column names  (name, age, country, position education, wage)
   db.query(
-    "INSERT INTO employees (name, age, country, position education, wage) VALUES (?,?,?,?,?,?)",
-    [name, age, country, position, education, wage],
+    "INSERT INTO employees (name, age, country, position, wage,education) VALUES (?,?,?,?,?,?)",
+    [name, age, country, position, wage, education],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -33,6 +33,17 @@ app.post("/create", (req, res) => {
       }
     }
   );
+});
+
+app.get("/employees", (req, res) => {
+
+  db.query("SELECT * FROM employees",(err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.listen(8000, () => {

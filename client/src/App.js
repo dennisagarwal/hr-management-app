@@ -9,6 +9,7 @@ function App() {
   const [education, setEducation] = useState("");
   const [position, setPosition] = useState("");
   const [wage, setWage] = useState(0);
+  const [employeeList,setEmployeeList]=useState([])
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -50,6 +51,17 @@ function App() {
       console.log(error);
     });
   };
+
+  const getEmployees=()=>{
+    axios.get("http://localhost:8000/employees", {
+
+    }).then((result)=>{
+      console.log(result)
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
+
 
   return (
     <div className="app">
@@ -99,6 +111,10 @@ function App() {
         <button onClick={addEmployee} className="information__button">
           Add Employee
         </button>
+        <hr className="line" />
+        <div className="employees">
+        <button onClick={getEmployees} className="information__button"> Show Employees</button>
+        </div>
       </div>
     </div>
   );
