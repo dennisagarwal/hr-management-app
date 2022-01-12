@@ -55,15 +55,15 @@ $ node index.js (on server side)
 
  **1.** Landing Page
 
- ![](images/landing-page.JPG)
+ ![](client/images/landing-page.JPG)
 
   **2.** Local MySQL database
 
- ![](images/database.JPG)
+ ![](client/images/database.JPG)
 
    **3.** Heroku MySQL database
 
- ![](images/heroku-database.JPG)
+ ![](client/images/heroku-database.JPG)
 
 
  ##### Website Link
