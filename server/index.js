@@ -72,6 +72,10 @@ app.delete("/delete/:id", (req, res) => {
   });
 });
 
-app.listen(8000, () => {
-  console.log("Server is running on PORT 8000");
+// app.listen(8000, () => {
+//   console.log("Server is running on PORT 8000");
+// });
+
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`Server is running on PORT ${PORT}`);
 });
