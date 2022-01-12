@@ -63,7 +63,7 @@ $ node index.js (on server side)
 
    **3.** Heroku MySQL database
 
- ![](client/images/heroku-database.JPG)
+ ![](client/images/heroku-server.JPG)
 
 
  ##### Website Link
