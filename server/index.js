@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = 8000;
 
 // const db = mysql.createConnection({
 //   user: "root",
