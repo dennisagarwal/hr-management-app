@@ -22,7 +22,6 @@ const db = mysql.createConnection({
   database: "heroku_245442ac4a472af",
 });
 
-mysql://b0bd4c4fe3358d:3ece77f3@us-cdbr-east-05.cleardb.net/heroku_245442ac4a472af?
 
 app.post("/create", (req, res) => {
   const name = req.body.name;
