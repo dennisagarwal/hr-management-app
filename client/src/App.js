@@ -110,7 +110,7 @@ function App() {
     .then((result) => {
       setEmployeeList(
         employeeList.filter((employee) => {
-          return employee.id != id
+          return employee.id !== id
 
         })
       );
@@ -187,7 +187,7 @@ function App() {
                 </p>
                 <div>
                   <p className="employee__label--small">
-                    Wage: {employee.wage}
+                    Wage: ${employee.wage}
                   </p>
                   <input
                     onChange={(event) => {
@@ -197,17 +197,19 @@ function App() {
                     placeholder="0"
                   ></input>
                   <button
+                  className="updateButton"
                     onClick={() => {
                       updateWage(employee.id);
                     }}
                   >
                     Update
                   </button>
-                  <button onClick={()=>deleteEmployees(employee.id)}>Delete</button>
+
                 </div>
                 <p className="employee__label--small">
                   Country: {employee.country}
                 </p>
+                <button  className="deleteButton" onClick={()=>deleteEmployees(employee.id)}>Delete</button>
               </div>
             );
           })}
