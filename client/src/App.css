@@ -28,13 +28,13 @@
   width: 320px;
   height: 50px;
   font-size: 20px;
-  margin-top: 15px;
   background-color: cadetblue;
   color: white;
   border-style: none;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
+  margin: 10px;
 }
 
 .information__button:hover {
@@ -51,11 +51,34 @@
   border-left: none;
   border-top: dotted;
   border-width: 5px;
-  margin: 20px;
+  margin: 10px;
 }
 
 .employees {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
+
+.employee {
+  display: flex;
+  width: 1200px;
+  height:100px;
+  background-color: cornsilk;
+  border:1px solid black;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.employee__label{
+  width:350px;
+  padding-right: 10px;
+  }
+
+.employee__label--small{
+width:150px;
+padding-right: 10px;
+}
+
